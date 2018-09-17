@@ -1,0 +1,31 @@
+CP1: 
+	Triple fault due to the PDE.
+CP2: 
+	Did not setup the PIC correctly so that keyboard interrupt couldn't be handled properly
+		-- fixed by opening IRQ2 and IRQ8 together on both master and slave PIC
+		-- fixed by enabling present bit on the idt for interrupt vectors
+	RTC also had similar problems due to incorrect PIC setup
+		-- solved by the same approach above
+CP3:
+	Execute and Halt was very hard to implement, encountered multiple page faults, could not finish on time
+		-- fixed during CP4, by correcting the misplaced stack pointer
+		-- fixed by restoring correct return address for iret
+	Also, added dummy_fn type and aligned all read/write/open/close operations function signature to unify system calls
+	Fixed RTC frequency changing logics a little bit
+CP4: 
+	GREP returned "no command found" upon execution. In gdb, we discovered that grep's inode
+	was overwritten by other processes. We therefore discovered that the kernel stack was incorrect and had to add magical printfs to make it work.
+		-- fixed by putting the stack  to the correct starting address. 
+		-- fixed by accounting for 4 extra bytes on top of each process stacks so that they	don't overlap
+	Fish did not run correctly in such a way that the displayed image is corrupted
+		-- fixed by setting correct read_data indices in filesystems.c
+	Completed error checking statements on various R/W/O/C operations and ensured that syserr passed all testcases
+CP5:
+	Added sanity check in getargs to ensure that grep and cat could be called only when argument is present
+	PIT interrupt wouldn't get services properly
+		-- fixed by initializing pit before execute("shell")
+	Scheduling context switch keeps page faulting
+		-- unfixed yet...
+	Terminal switch works mostly, except for vid_map related stuff 
+	
+
