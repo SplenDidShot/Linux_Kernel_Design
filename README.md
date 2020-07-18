@@ -1,5 +1,5 @@
 # Linux_Kernel_Design
-This repository contains my past Linux kernel design project written in x86 and C in a team of four.
+This repository contains the source code of my past Linux kernel design project written in x86 and C in a team of four.
 Source files are located in the student-distrib directory.
 
 # Components
