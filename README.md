@@ -4,24 +4,24 @@ Source files are located in the student-distrib directory.
 
 # Components
 ## Kernel Boot Loading
-student-distrib/boot.S/h  
-student-distrib/x86_desc.S/h  
-student-distrib/isr_wrapper.S/h  
+boot.S/h  
+x86_desc.S/h  
+isr_wrapper.S/h  
 
 ## Interrupt/Terminal IO/System Call Handling
-student-distrib/dev_kbd.c/h 
-student-distrib/dev_term.c/h  
-student-distrib/idt.c/h 
-student-distrib/lib.c/h
-student-distrib/rtc.c/h 
-student-distrib/vga.c/h 
+dev_kbd.c/h 
+dev_term.c/h  
+idt.c/h 
+lib.c/h
+rtc.c/h 
+vga.c/h 
 
 ## Filesystem & Memory Structuring
-student-distrib/filesystem.c/h
-student-distrib/paging.c/h 
+filesystem.c/h
+paging.c/h 
 
 ## i8259 Chip IRQ Controller
-student-distrib/i8259.c/h 
+i8259.c/h 
 
 ## Multiprocess Scheduler
-student-distrib/schedule.c/h 
+schedule.c/h 
